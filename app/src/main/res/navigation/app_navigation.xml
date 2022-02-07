@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.mehyo.androidassignment.ui.pages.main.MainPageFragment"
+        android:label="Launches"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_innerPageFragment"
+            app:destination="@id/innerPageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/innerPageFragment"
+        android:name="com.mehyo.androidassignment.ui.pages.inner.InnerPageFragment"
+        android:label="Inner Page"
+        tools:layout="@layout/fragment_inner_page" >
+        <argument
+            android:name="rocketID"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_innerPageFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/mainPageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
