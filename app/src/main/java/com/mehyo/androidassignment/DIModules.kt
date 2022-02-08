@@ -1,5 +1,7 @@
 package com.mehyo.androidassignment
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.mehyo.androidassignment.network.SpaceXAPI
 import com.mehyo.androidassignment.repository.LaunchesRepository
 import com.mehyo.androidassignment.repository.RocketRepository
@@ -33,6 +35,7 @@ val repositoryModule = module {
 }
 
 //all viewModel modules
+@RequiresApi(Build.VERSION_CODES.O)
 val viewModelModule = module {
     viewModel { InnerPageViewModel(rocketRepo = get()) }
     viewModel { MainPageViewModel(launchesRepo = get()) }
